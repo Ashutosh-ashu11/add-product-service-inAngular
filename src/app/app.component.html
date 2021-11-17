@@ -13,9 +13,10 @@
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-md-12">
-          <label for="tableName">Product Name:</label>
-        <input type="text" id="name" name="name" formControlName="tableName" class="form-control">
-        </div>
+          <label for="tableName">tableName:</label>
+        <input type="text" id="name" name="name" formControlName="tableName" class="form-control" required>
+         
+      </div>
         
       </div>
       <br/>
@@ -24,13 +25,15 @@
         <div class="row">
           <div class="col-md-5">
             <label> columnName</label>
-            <input type="text" formControlName="columnName" class="form-control"></div>
+            <input type="text" formControlName="columnName" class="form-control" required></div>
           <div class="col-md-5">
             <label>columnType</label>
-            <input type="text" formControlName="columnType" class="form-control">
+            <select formControlName="columnType" class="form-control"  [(ngModel)]="selected">  
+              <option *ngFor="let columnType of columnTypeS">{{columnType}}</option>  
+          </select>  
           </div>
           <div class="col-md-2">
-          <button (click)="removeList(i)" class="btn btn-danger remove">Remove</button>
+          <button (click)="removeList(i)" class="btn btn-danger remove">Remove</button> 
           </div>
         </div>
         </div>

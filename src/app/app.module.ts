@@ -7,9 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DynamicPojoComponent } from './dynamic-pojo/dynamic-pojo.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DynamicPojoComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +23,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
