@@ -14,34 +14,34 @@ export class AppComponent implements OnInit {
   constructor(private fb:FormBuilder, private _productListService:ProductListService, private _snackBar: MatSnackBar) {
    
     this.productForm = this.fb.group({
-      productName: '',
-      ListofProduct: this.fb.array([]),
+      tableName: '',
+      columnesDetails: this.fb.array([]),
     });
   }
   
-  ListofProduct() : FormArray {
-    return this.productForm.get("ListofProduct") as FormArray
+  columnesDetails() : FormArray {
+    return this.productForm.get("columnesDetails") as FormArray
   }
    
   newList(): FormGroup {
     return this.fb.group({
-      vendorName: '',
-      vendorType: '',
+      columnName: '',
+      columnType: '',
     })
   }
    
   addList() {
-    this.ListofProduct().push(this.newList());
+    this.columnesDetails().push(this.newList());
   }
    
   removeList(i:number) {
-    this.ListofProduct().removeAt(i);
+    this.columnesDetails().removeAt(i);
   }
    
   onSubmit() {
-    this._productListService.productList({
+    this._productListService.productList(this.productForm.value
       //send object from here that is 'this.productForm.value'
-    }).subscribe((value:any)=>{
+    ).subscribe((value:any)=>{
       if(value != null && value !=undefined){
        //if value is success then show message on dialogue box submission is successfull and vice-versa 
        this.messageOfSuccessFail(value, "Close");
