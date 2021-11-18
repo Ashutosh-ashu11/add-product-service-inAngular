@@ -62,6 +62,7 @@ export class AppComponent implements OnInit {
       this._snackBar.open("please fill the tableName and ColumnName");
       this._snackBar._openedSnackBarRef?._dismissAfter(5000);
     }
+    console.log(this.productForm.value);
   }
   ngOnInit(){
     this.addList();

@@ -28,7 +28,8 @@
             <input type="text" formControlName="columnName" class="form-control" required></div>
           <div class="col-md-5">
             <label>columnType</label>
-            <select formControlName="columnType" class="form-control"  [(ngModel)]="selected">  
+            <select formControlName="columnType" class="form-control" > 
+              <option>Select columntype</option> 
               <option *ngFor="let columnType of columnTypeS">{{columnType}}</option>  
           </select>  
           </div>
